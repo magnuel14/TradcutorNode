@@ -1,0 +1,22 @@
+{
+  "name": "demo-api-translator-nodejs",
+  "version": "1.0.0",
+  "description": "Demo responsável por ",
+  "main": "tradutor-texto.js",
+  "scripts": {
+    "dev-EsTOv": "node src/tradutor-EsTOv.js"
+  },
+  "keywords": [
+    "nodejs",
+    "javascript",
+    "azure",
+    "cognitive-services",
+    "translator-text"
+  ],
+  "author": "Manuel Vicente",
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.88.0",
+    "uuidv4": "^5.0.1"
+  }
+}
