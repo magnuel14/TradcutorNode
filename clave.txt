@@ -2,7 +2,6 @@
 verificacion 
 export TRANSLATOR_TEXT_SUBSCRIPTION_KEY=ac183b597ba346aea621612fae96e3c6
 export TRANSLATOR_TEXT_ENDPOINT=https://api.cognitive.microsofttranslator.com
-
 source ~/.bashrc
 ejecucion
 npm run dev-EsTOv
