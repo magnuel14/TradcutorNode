@@ -1,14 +1,15 @@
-
+//librerias cargadas
 const request = require('request');
 const uuidv4 = require('uuid/v4');
-
+//incio cargar llaves de acceso
+//llave de cliente
 let chave_translator = 'TRANSLATOR_TEXT_SUBSCRIPTION_KEY';
 
 // si las variebles de entorno no funcion, da un error
 if (!process.env[chave_translator]) {
   throw new Error('Por favor, configure a sua variável de ambiente: ' + chave_translator);
 }
-
+//para agregar estasllaves se usa la consola
 let subscriptionKey = process.env[chave_translator];
 
 let endpoint_translator = 'TRANSLATOR_TEXT_ENDPOINT';
@@ -18,104 +19,20 @@ if (!process.env[endpoint_translator]) {
 }
 
 let endpoint = process.env[endpoint_translator];
+// fin llaves de acceso
 
-
-function traduzirTexto0() {
-  // configuracion de la solicitud
-  let options = {
-    method: 'POST',
-    baseUrl: endpoint,
-    url: 'translate',
-    qs: {
-      'api-version': '3.0',
-      'to': ['es','pt','en']
-    },
-    headers: {
-      'Ocp-Apim-Subscription-Key': subscriptionKey,
-      'Content-type': 'application/json',
-      'X-ClientTraceId': uuidv4().toString()
-    },
-    body: [{
-      'text': 'Fernando va jugar futbol en el parque'
-    
-    }],
-    json: true,
-  }
-  // imprimir la solicitud
-  request(options, (err, res, body) => {
-    console.log(JSON.stringify(body, null, 4));
-  })
-};
-// se invoca a la funcion que hace la traduccion
-function traduzirTexto1() {
-  // configuracion de la solicitud
-  let options = {
-    method: 'POST',
-    baseUrl: endpoint,
-    url: 'translate',
-    qs: {
-      'api-version': '3.0',
-      'to': ['es','pt','en']
-    },
-    headers: {
-      'Ocp-Apim-Subscription-Key': subscriptionKey,
-      'Content-type': 'application/json',
-      'X-ClientTraceId': uuidv4().toString()
-    },
-    body: [{
-     
-      'text':'Hello, what is your name?'
-
-    }],
-    json: true,
-  }
-  // imprimir la solicitud
-  request(options, (err, res, body) => {
-    console.log(JSON.stringify(body, null, 4));
-  })
-};
-
-function traduzirTexto2( ) {
-  // configuracion de la solicitud
-  e='hola';
-  let options = {
-    method: 'POST',
-    baseUrl: endpoint,
-    url: 'translate',
-    qs: {
-      'api-version': '3.0',
-      'profanityAction':'Marked',
-      'to': ['es','pt','en']
-    },
-    headers: {
-      'Ocp-Apim-Subscription-Key': subscriptionKey,
-      'Content-type': 'application/json',
-      'X-ClientTraceId': uuidv4().toString()
-    },
-    body: [{
-    
-     
-      'text':'es  una  idea '
-    }],
-    json: true,
-  }
-  // imprimir la solicitud
-  request(options, (err, res, body) => {
-    console.log(JSON.stringify(body, null, 4));
-  })
-};
-//traduzirTexto0();
-//traduzirTexto1();
-//traduzirTexto2();
-//const fs = require('fs');
-//const json_books = fs.readFileSync('src/a.json', 'utf-8');
-//let books = JSON.parse(json_books);
-//console.log(books);
-
-
+//Json que av seer analizado
 var obj = [
   {
-    'text': 'Fernando juega futbol' 
+    'text': 'Manuel camina por la calle' 
+    
+  },
+  {
+    'text': 'Alex estudia fisica' 
+    
+  },
+  {
+    'text': 'Mario esta haciendo ejercicio' 
     
   },
   {
@@ -134,13 +51,15 @@ var obj = [
     
   },     
 ]
+//ciclo forpara recorrer cada linea del objeto json y traducirla
 for (x of obj) {
+  //se imprime la oraciones para tener una referencia de lo que va traducir
   console.log(x.text);
-  
-  var eo =x.text;
-  function traduzirTexto2( ) {
-    // configuracion de la solicitud
-
+  //se guarda la oracion o liena del objeto json, esta se usa mas bajo
+  var data =x.text;
+  //funcioa que usa lavariable data para traducir
+  function traduzirTexto() {
+    // configuracion de la solicitud, esta solicitud la analizael traslate-text
     let options = {
       method: 'POST',
       baseUrl: endpoint,
@@ -148,7 +67,7 @@ for (x of obj) {
       qs: {
         'api-version': '3.0',
         
-        'to': ['es','pt','en']
+        'to': ['es','en','ru','zh-Hans']
       },
       headers: {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
@@ -158,7 +77,7 @@ for (x of obj) {
       body: [{
       
        
-        'text':eo,
+        'text':data,
       }],
       json: true,
     }
@@ -168,6 +87,6 @@ for (x of obj) {
     })
   };
  
-  traduzirTexto2();
+  traduzirTexto();
 }
 
