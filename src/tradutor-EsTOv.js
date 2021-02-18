@@ -76,7 +76,6 @@ for (x of obj) {
       },
       body: [{
       
-       
         'text':data,
       }],
       json: true,

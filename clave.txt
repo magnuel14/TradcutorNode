@@ -1,8 +1,11 @@
 
 verificacion 
-export TRANSLATOR_TEXT_SUBSCRIPTION_KEY=ac183b597ba346aea621612fae96e3c6
+
+
+export TRANSLATOR_TEXT_SUBSCRIPTION_KEY=xx183b597ba346aea621612fxxxxxxxx
 export TRANSLATOR_TEXT_ENDPOINT=https://api.cognitive.microsofttranslator.com
 source ~/.bashrc
+
 ejecucion
 npm run dev-EsTOv
 
@@ -13,3 +16,6 @@ npm run dev-EsTOv
 //const json_books = fs.readFileSync('src/a.json', 'utf-8');
 //let books = JSON.parse(json_books);
 //console.log(books);
+
+
+
